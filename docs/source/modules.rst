@@ -1,7 +1,7 @@
-src
+qml
 ===
 
 .. toctree::
    :maxdepth: 4
 
-   src
+   qml
