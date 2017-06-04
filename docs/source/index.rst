@@ -12,6 +12,6 @@ Quantum Machine Learning
    :caption: Contents:
 
    modules
-   qml
+   src
 
 
