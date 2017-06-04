@@ -18,7 +18,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../qml'))
+sys.path.insert(0, os.path.abspath('../src'))
 import sphinx_rtd_theme
 
 # -- General configuration ------------------------------------------------
