@@ -1,4 +1,5 @@
 # QML: A Python Toolkit for Quantum Machine Learning
+[![Build Status](https://travis-ci.org/qmlcode/qml.svg?branch=master)](https://travis-ci.org/qmlcode/qml)
 
 QML is a Python2/3-compatible toolkit for representation learning of properties of molecules and solids. QML is not a high-level framework where you can do `model.train()`, but supplies the building blocks to carry out efficient and accurate machine learning on chemical compounds. As such, the goal is to provide usable and efficient implementations of concepts such as representations and kernels, which can then be implemented in other machine learning codes.
 
@@ -31,7 +32,7 @@ These should already be installed on most systems. The Intel compilers and MKL m
 The easiest way to install the stable version from the Python Package Index (PyPI) is using the official, built-in Python package manager, `pip`:
 
 ```bash
-pip qml --user -U
+pip install qml --user -U
 ```
 
 Alternatively, you can install the most recent stable development snapshot directly from GitHub:
