@@ -1,7 +1,8 @@
-lib.linux-x86_64-2.7
-====================
+qml
+===
 
 .. toctree::
    :maxdepth: 4
 
-   qml
+   setup
+   src
