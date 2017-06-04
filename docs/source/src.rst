@@ -1,77 +1,77 @@
-src package
+qml package
 ===========
 
 Submodules
 ----------
 
-src\.arad module
+qml\.arad module
 ----------------
 
-.. automodule:: src.arad
+.. automodule:: qml.arad
     :members:
     :undoc-members:
     :show-inheritance:
 
-src\.arad\_kernels module
+qml\.arad\_kernels module
 -------------------------
 
-.. automodule:: src.arad_kernels
+.. automodule:: qml.arad_kernels
     :members:
     :undoc-members:
     :show-inheritance:
 
-src\.compound module
+qml\.compound module
 --------------------
 
-.. automodule:: src.compound
+.. automodule:: qml.compound
     :members:
     :undoc-members:
     :show-inheritance:
 
-src\.data module
+qml\.data module
 ----------------
 
-.. automodule:: src.data
+.. automodule:: qml.data
     :members:
     :undoc-members:
     :show-inheritance:
 
-src\.distance module
+qml\.distance module
 --------------------
 
-.. automodule:: src.distance
+.. automodule:: qml.distance
     :members:
     :undoc-members:
     :show-inheritance:
 
-src\.kernels module
+qml\.kernels module
 -------------------
 
-.. automodule:: src.kernels
+.. automodule:: qml.kernels
     :members:
     :undoc-members:
     :show-inheritance:
 
-src\.math module
+qml\.math module
 ----------------
 
-.. automodule:: src.math
+.. automodule:: qml.math
     :members:
     :undoc-members:
     :show-inheritance:
 
-src\.representations module
+qml\.representations module
 ---------------------------
 
-.. automodule:: src.representations
+.. automodule:: qml.representations
     :members:
     :undoc-members:
     :show-inheritance:
 
-src\.wrappers module
+qml\.wrappers module
 --------------------
 
-.. automodule:: src.wrappers
+.. automodule:: qml.wrappers
     :members:
     :undoc-members:
     :show-inheritance:
@@ -80,7 +80,7 @@ src\.wrappers module
 Module contents
 ---------------
 
-.. automodule:: src
+.. automodule:: qml
     :members:
     :undoc-members:
     :show-inheritance:
