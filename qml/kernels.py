@@ -38,17 +38,14 @@ def laplacian_kernel(A, B, sigma):
 
         K is calculated using an OpenMP parallel Fortran routine.
 
-        NOTE: A and B need not be input as Fortran contiguous arrays.
+        :param arg1: np.array of np.array of descriptors.
+        :type arg1: 2D np.array (N, size), where N is the size of each representation.
+        :param arg2: np.array of np.array of descriptors.
+        :type arg1: 2D np.array (M, size), where M is the size of each representation.
+        :param arg3: The value of sigma in the kernel matrix.
 
-        Arguments:
-        ==============
-        A -- np.array of np.array of descriptors.
-        B -- np.array of np.array of descriptors.
-        sigma -- The value of sigma in the kernel matrix.
-
-        Returns:
-        ==============
-        K -- The Laplacian kernel matrix.
+        :return: The Laplacian kernel matrix.
+        :rtype: 2D np.array (N, M)
     """
 
     na = A.shape[0]
@@ -69,19 +66,14 @@ def gaussian_kernel(A, B, sigma):
 
         Where A_i and B_j are descriptor vectors.
 
-        K is calculated using an OpenMP parallel Fortran routine.
+        :param arg1: np.array of np.array of descriptors.
+        :type arg1: 2D np.array (N, size), where N is the size of each representation.
+        :param arg2: np.array of np.array of descriptors.
+        :type arg1: 2D np.array (M, size), where M is the size of each representation.
+        :param arg3: The value of sigma in the kernel matrix.
 
-        NOTE: A and B need not be input as Fortran contiguous arrays.
-
-        Arguments:
-        ==============
-        A -- np.array of np.array of descriptors.
-        B -- np.array of np.array of descriptors.
-        sigma -- The value of sigma in the kernel matrix.
-
-        Returns:
-        ==============
-        K -- The Gaussian kernel matrix.
+        :return: The Gaussian kernel matrix.
+        :rtype: 2D np.array (N, M)
     """
 
     na = A.shape[0]

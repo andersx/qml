@@ -50,14 +50,13 @@ def cho_solve(A, y):
     """ Solves [A x = y] for x using a Cholesky decomposition
         via calls to LAPACK dpotrf and dpotrs in the F2PY module.
 
-        Arguments:
-        ==============
-        A -- the A-matrix (symmetric and positive definite).
-        y -- the right-hand side of the equation (vector).
+        :param arg1: Matrix (symmetric and positive definite, left-hand side)
+        :type arg1: 2D numpy array 
+        :param arg2: Vector (right-hand side of the equation)
+        :type arg2: 1D numpy array 
 
-        Returns:
-        ==============
-        x -- the vector for with the equation has been solved.
+        :return: The solution vector
+        :rtype: 1D numpy array 
     """
 
     if len(A.shape) != 2 or A.shape[0] != A.shape[1]:

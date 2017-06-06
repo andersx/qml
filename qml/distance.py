@@ -31,14 +31,13 @@ def manhattan_distance(A, B):
     """ Calculates the Manhattan distances between two
         Numpy arrays of representations.
     
-        Arguments:
-        ==============
-        A -- np.array of np.array of representations.
-        B -- np.array of np.array of representations.
+        :param arg1: 2D array of representations.
+        :type arg1: np.array
+        :param arg2: 2D array of representations.
+        :type arg2: np.array
 
-        Returns:
-        ==============
-        D -- The distance matrix.
+        :return: The Manhattan-distance matrix.
+        :rtype: 2D np.array
     """
 
     if len(A.shape) != 2 or len(B.shape) != 2:
@@ -57,17 +56,16 @@ def manhattan_distance(A, B):
     return D
 
 def l2_distance(A, B):
-    """ Calculates the L2-distances between two
+    """ Calculates the L2 distances between two
         Numpy arrays of representations.
     
-        Arguments:
-        ==============
-        A -- np.array of np.array of representations.
-        B -- np.array of np.array of representations.
+        :param arg1: 2D array of representations.
+        :type arg1: np.array
+        :param arg2: 2D array of representations.
+        :type arg2: np.array
 
-        Returns:
-        ==============
-        D -- The distance matrix.
+        :return: The L2-distance matrix.
+        :rtype: 2D np.array
     """
 
     if len(A.shape) != 2 or len(B.shape) != 2:
@@ -86,18 +84,18 @@ def l2_distance(A, B):
     return D
 
 def p_distance(A, B, p=2):
-    """ Calculates the p-norms between two
+    """ Calculates the p-norm distances between two
         Numpy arrays of representations.
+        The value of the keyword argument ``p=`` sets the norm order. 
+        E.g. ``p=1.0`` and ``p=2.0`` with yield the Manhattan and L2 distances, respectively. 
     
-        Arguments:
-        ==============
-        A -- np.array of np.array of representations.
-        B -- np.array of np.array of representations.
-        p -- the norm order (as integer or float)
+        :param arg1: np.array of np.array of representations.
+        :type arg1: np.array
+        :param arg2: np.array of np.array of representations.
+        :type arg2: np.array
 
-        Returns:
-        ==============
-        D -- The distance matrix.
+        :return: The distance matrix.
+        :rtype: 2D np.array (N, M)
     """
 
     if len(A.shape) != 2 or len(B.shape) != 2:
