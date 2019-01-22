@@ -639,7 +639,7 @@ class AtomCenteredSymmetryFunctions(_AtomicRepresentation):
                     basis functions intersecting at half maximum. Higher values makes \
                     the basis functions narrower.
     :type precision: float
-    :param elements: Atomnumber of elements that the representation should support.
+    :param elements: Atomnumber of elements that the representation should support. \
                      `elements='auto'` will try to determine this automatically.
     :type elements: list
     """
