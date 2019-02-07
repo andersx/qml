@@ -203,7 +203,8 @@ function get_twobody_weights(x, neighbors, power, cut_start, cut_distance, dim1)
 
     do i = 2, neighbors
 
-        ksi(i) = cut_function(x(1, i), cut_start, cut_distance) / x(1, i)**power
+        ! ksi(i) = cut_function(x(1, i), cut_start, cut_distance) / x(1, i)**power
+        ksi(i) = 1.0d0 !cut_function(x(1, i), cut_start, cut_distance) / x(1, i)**power
 
     enddo
 
@@ -371,11 +372,13 @@ function calc_ksi3(X, j, k, power, cut_start, cut_distance) result(ksi3)
     di = norm2(x(3:5, j) - x(3:5, k))
 
 
-    cut = cut_function(dk, cut_start, cut_distance) * &
-        & cut_function(dj, cut_start, cut_distance) * &
-        & cut_function(di, cut_start, cut_distance)
+    ! cut = cut_function(dk, cut_start, cut_distance) * &
+    !     & cut_function(dj, cut_start, cut_distance) * &
+    !     & cut_function(di, cut_start, cut_distance)
 
-    ksi3 = cut * (1.0d0 + 3.0d0 * cos_i*cos_j*cos_k) / (di * dj * dk)**power
+    ! ksi3 = cut * (1.0d0 + 3.0d0 * cos_i*cos_j*cos_k) / (di * dj * dk)**power
+
+    ksi3 = 1.0d0
 
 end function calc_ksi3
 
