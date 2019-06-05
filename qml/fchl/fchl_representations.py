@@ -222,7 +222,7 @@ def generate_representation_electric_field(coordinates, nuclear_charges,
 
     # Otherwise, if a string is given, assume this is the name of a charge model
     # in Open Babel//Pybel.
-    elif isinstance(fictitious_charges, (basestring,)):
+    elif isinstance(fictitious_charges, (str,)):
 
         # Dirty hack for now.
         try:
