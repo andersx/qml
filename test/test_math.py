@@ -28,6 +28,9 @@ from copy import deepcopy
 
 import qml
 import qml.math
+from qml.math import svd_solve
+from qml.math import qrlq_solve
+from qml.math import qrlq2_solve
 
 def test_cho_solve():
 
@@ -112,8 +115,28 @@ def test_bkf_solve():
     assert np.allclose(x_qml, x_scipy)
 
 
+def test_non_square_solve():
+
+    np.random.seed(666)
+
+    X = np.random.rand(20,10)
+    y = np.random.rand(20)
+
+    ref_alpha = np.linalg.lstsq(X, y, rcond=0.0)[0]
+
+    alpha = svd_solve(X, y)
+    assert np.allclose(alpha, ref_alpha)
+    
+    alpha = qrlq_solve(X, y)
+    assert np.allclose(alpha, ref_alpha)
+
+    alpha = qrlq2_solve(X, y)
+    assert np.allclose(alpha, ref_alpha)
+
+
 if __name__ == "__main__":
     test_cho_solve()
     test_cho_invert()
     test_bkf_invert()
     test_bkf_solve()
+    test_non_square_solve()

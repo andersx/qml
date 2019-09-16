@@ -151,6 +151,61 @@ subroutine fbkf_solve(A,y,x)
 end subroutine fbkf_solve
 
 
+subroutine fqrlq_reg_solve(A, y, la, rcond, x)
+
+    implicit none
+
+    double precision, dimension(:,:), intent(inout) :: A
+    double precision, dimension(:), intent(inout):: y
+    integer, intent(in):: la
+    double precision, intent(in) :: rcond 
+    double precision, dimension(la), intent(out) :: x
+
+    double precision, allocatable, dimension(:,:) :: b
+
+    integer :: m, n, nrhs, lda, ldb, rank, info
+
+    double precision, dimension(:), allocatable :: jpvt
+    
+    integer :: lwork
+    double precision, dimension(:), allocatable :: work
+
+    m = size(A, dim=1)
+    n = size(A, dim=2)
+
+
+    nrhs = 1
+    lda = m
+    ldb = max(m,n)
+   
+    allocate(jpvt(ldb))
+    jpvt(:) = 0
+
+    allocate(b(ldb,1))
+    b = 0.0d0
+    b(:m,1) = y(:m)
+
+    lwork = (min(m,n) + max(m,n)) * 10
+    allocate(work(lwork))
+
+    ! write (*,*) info, lda, ldb, m, n
+    ! call dgels("N", m, n, nrhs, a, lda, b, ldb, work, lwork, info)
+    call dgelsy(m, n, nrhs, a, lda, b, ldb, jpvt, rcond, rank, work, lwork, info)
+
+    if (info < 0) then
+        write (*,*) "QML WARNING: Could not perform QRLQ solver DGELSY: info =", info
+    else if (info > 0) then
+        write (*,*) "QML WARNING: QRLQ solver (DGELSY) the", -info, "th"
+        write (*,*) "diagonal element of the triangular factor of A is zero,"
+        write (*,*) "so that A does not have full rank; the least squares"
+        write (*,*) "solution could not be computed."
+    endif
+    
+    x(:n) = b(:n,1)    
+    
+end subroutine fqrlq_reg_solve
+
+
 subroutine fqrlq_solve(A, y, la, x)
 
     implicit none

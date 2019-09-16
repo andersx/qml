@@ -30,6 +30,7 @@ from .fsolvers import fbkf_solve
 from .fsolvers import fbkf_invert
 from .fsolvers import fsvd_solve
 from .fsolvers import fqrlq_solve
+from .fsolvers import fqrlq_reg_solve
 from .fsolvers import fcond
 from .fsolvers import fcond_ge
 
@@ -173,6 +174,38 @@ def bkf_solve(A, y):
     # Copy lower triangle to upper
     i_lower = np.tril_indices_from(A)
     A.T[i_lower] = A[i_lower]
+
+    return x
+
+
+def qrlq2_solve(A, y, rcond=None):
+    """ Solves the equation
+
+            :math:`A x = y`
+
+        for x using a singular-value decomposition (SVD) via calls to
+        LAPACK DGELSD in the F2PY module. Preserves the input matrix A.
+
+        :param A: Matrix (symmetric and positive definite, left-hand side).
+        :type A: numpy array
+        :param y: Vector (right-hand side of the equation).
+        :type y: numpy array
+        :param rcond: Optional parameater for lowest singular-value  
+        :type rcond: float 
+
+        :return: The solution vector.
+        :rtype: numpy array
+        """
+
+    if len(y.shape) != 1 or y.shape[0] != A.shape[0]:
+        raise ValueError('expected matrix and vector of same stride size')
+
+    if rcond is None:
+        rcond=0.0
+
+    x_dim = A.shape[1]
+    A = np.asarray(A, order="F")
+    x = fqrlq_reg_solve(A, y, x_dim, rcond)
 
     return x
 
